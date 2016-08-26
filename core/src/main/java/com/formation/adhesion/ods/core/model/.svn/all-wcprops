@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/adhsn/!svn/ver/2539/supervision/ods/trunk/core/src/main/java/com/airfrance/adhesion/ods/core/model
+END
+Errors.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/adhsn/!svn/ver/2539/supervision/ods/trunk/core/src/main/java/com/airfrance/adhesion/ods/core/model/Errors.java
+END
+IpAddressFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/adhsn/!svn/ver/2539/supervision/ods/trunk/core/src/main/java/com/airfrance/adhesion/ods/core/model/IpAddressFilter.java
+END
+Statistics.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/adhsn/!svn/ver/2478/supervision/ods/trunk/core/src/main/java/com/airfrance/adhesion/ods/core/model/Statistics.java
+END
+EntryPointToMonitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/adhsn/!svn/ver/2539/supervision/ods/trunk/core/src/main/java/com/airfrance/adhesion/ods/core/model/EntryPointToMonitor.java
+END

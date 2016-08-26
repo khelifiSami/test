@@ -1,0 +1,51 @@
+package com.formation.adhesion.ods.core.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.formation.adhesion.ods.core.model.EntryPointToMonitor;
+
+@Repository
+public class EntryPointToMonitorDao {
+
+	@PersistenceContext
+	transient EntityManager entityManager;
+
+	@Transactional
+	public void persist(EntryPointToMonitor entryPointToMonitor) {
+		if (this.entityManager == null)
+			this.entityManager = getEntityManager();
+		this.entityManager.persist(entryPointToMonitor);
+	}
+
+	@Transactional
+	public void remove(EntryPointToMonitor entryPointToMonitor) {
+		if (this.entityManager == null)
+			this.entityManager = getEntityManager();
+		if (this.entityManager.contains(entryPointToMonitor)) {
+			this.entityManager.remove(entryPointToMonitor);
+		} else {
+			EntryPointToMonitor attached = find(entryPointToMonitor.getId());
+			this.entityManager.remove(attached);
+		}
+	}
+
+    public EntryPointToMonitor find(Long id) {
+        if (id == null) return null;
+        return getEntityManager().find(EntryPointToMonitor.class, id);
+    }
+    
+	public final EntityManager getEntityManager() {
+		if (entityManager == null)
+			throw new IllegalStateException(
+					"Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+		return entityManager;
+	}
+
+
+
+
+}

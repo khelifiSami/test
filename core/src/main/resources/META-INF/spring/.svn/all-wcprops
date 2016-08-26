@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/adhsn/!svn/ver/2624/supervision/ods/trunk/core/src/main/resources/META-INF/spring
+END
+database.properties
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/adhsn/!svn/ver/2431/supervision/ods/trunk/core/src/main/resources/META-INF/spring/database.properties
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/adhsn/!svn/ver/2369/supervision/ods/trunk/core/src/main/resources/META-INF/spring/applicationContext.xml
+END
+applicationContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/adhsn/!svn/ver/2624/supervision/ods/trunk/core/src/main/resources/META-INF/spring/applicationContext-dao.xml
+END

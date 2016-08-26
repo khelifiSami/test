@@ -1,0 +1,188 @@
+package com.formation.adhesion.ods.core.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="IP_ADDRESS_FILTER")
+public class IpAddressFilter implements Serializable{
+	
+	@Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="IP_ADDRESS_SEQ")
+    @SequenceGenerator(name = "IP_ADDRESS_SEQ", sequenceName="IP_ADDRESS_SEQ")
+    @Id
+    private Long id;
+	
+	@Column(name = "IP_ADDRESS", nullable = false, length = 15)
+    private String ipAddress;
+	
+	@Column(name = "HOSTNAME", nullable = false, length = 50)
+    private String hostname;
+	
+	@Column(name = "LOCALISATION", nullable = false, length = 20)
+    private String localisation;
+	
+	@Column(name = "COMPUTER_KIND", nullable = false, length = 10)
+    private String computerKind;
+	
+	@Column(name = "EXECUTION_ENVIRONMENT", nullable = false, length = 1)
+	private String executionEnvironment;
+	
+	@Column(name = "LAST_ACTION_WHO", nullable = false, length = 8)
+	private String lastActionWho;
+	
+	@Column(name = "LAST_ACTION_WHAT", nullable = false, length = 1)
+	private String lastActionWhat;
+	
+	@Column(name = "LAST_ACTION_HOW", nullable = false, length = 80)
+	private String lastActionHow;
+	
+	@Column(name = "LAST_ACTION_WHEN", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastActionWhen;
+	
+	@Column(name = "CREATION_TIMESTAMP", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date creationTimestamp;
+	
+	@Column(name = "LAST_USED_DATE", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastUsedDate;
+	
+	@Column(name = "STAT_ACTIVATION", nullable = false, length = 1)
+	private String statActivation;
+	
+	@Column(name = "ERROR_ACTIVATION", nullable = false, length = 1)
+	private String errorActivation;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
+	public String getHostname() {
+		return hostname;
+	}
+
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
+	}
+
+	public String getLocalisation() {
+		return localisation;
+	}
+
+	public void setLocalisation(String localisation) {
+		this.localisation = localisation;
+	}
+
+	public String getComputerKind() {
+		return computerKind;
+	}
+
+	public void setComputerKind(String computerKind) {
+		this.computerKind = computerKind;
+	}
+
+	public String getExecutionEnvironment() {
+		return executionEnvironment;
+	}
+
+	public void setExecutionEnvironment(String executionEnvironment) {
+		this.executionEnvironment = executionEnvironment;
+	}
+
+	public String getLastActionWho() {
+		return lastActionWho;
+	}
+
+	public void setLastActionWho(String lastActionWho) {
+		this.lastActionWho = lastActionWho;
+	}
+
+	public String getLastActionWhat() {
+		return lastActionWhat;
+	}
+
+	public void setLastActionWhat(String lastActionWhat) {
+		this.lastActionWhat = lastActionWhat;
+	}
+
+	public String getLastActionHow() {
+		return lastActionHow;
+	}
+
+	public void setLastActionHow(String lastActionHow) {
+		this.lastActionHow = lastActionHow;
+	}
+
+	public Date getLastActionWhen() {
+		return lastActionWhen;
+	}
+
+	public void setLastActionWhen(java.util.Date lastActionWhen) {
+		this.lastActionWhen = lastActionWhen;
+	}
+
+	public Date getCreationDate() {
+		return creationTimestamp;
+	}
+
+	public void setCreationDate(java.util.Date creationDate) {
+		this.creationTimestamp = creationDate;
+	}
+
+	public Date getLastUsedDate() {
+		return lastUsedDate;
+	}
+
+	public void setLastUsedDate(java.util.Date lastUsedDate) {
+		this.lastUsedDate = lastUsedDate;
+	}
+
+	public String getStatActivation() {
+		return statActivation;
+	}
+
+	public void setStatActivation(String statActivation) {
+		this.statActivation = statActivation;
+	}
+
+	public String getErrorActivation() {
+		return errorActivation;
+	}
+
+	public void setErrorActivation(String errorActivation) {
+		this.errorActivation = errorActivation;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

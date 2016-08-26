@@ -1,0 +1,266 @@
+package com.formation.adhesion.ods.core.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="ERRORS")
+public class Errors implements Serializable{
+	
+	@Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="ERRORS_SEQ")
+    @SequenceGenerator(name = "ERRORS_SEQ", sequenceName="ERRORS_SEQ")
+    @Id
+    private Long id;	
+	@Column(name = "CREATION_TIMESTAMP", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date creationTimestamp;	
+	@Column(name = "SERVICE_NUMBER", nullable = false, length = 8)
+	private String serviceNumber;
+	@Column(name = "CONNECTION_TYPE", nullable = false, length = 1)
+	private String connectionType;
+	@Column(name = "ORIGIN_TYPE", nullable = false, length = 1)
+	private String origineType;
+	@Column(name = "MSG_FORMAT", nullable = false, length = 1)
+	private String msgFormat;
+	@Column(name = "CLIENT_APP", nullable = false, length = 8)
+	private String clientApp;
+	@Column(name = "SERVER_APP", nullable = false, length = 8)
+	private String serverApp;
+	@Column(name = "MSGIN_LENGTH", nullable = false)
+	private Integer msginLength;
+	@Column(name = "MSGOUT_LENGTH", nullable = false)
+	private Integer msgoutLength;
+	@Column(name = "HOST_IP", nullable = false, length = 15)
+    private String hostIp;
+	@Column(name = "PORT_NUMBER", nullable = false, length = 5)
+    private String portNumber;
+	@Column(name = "LU62_NAME", nullable = false, length = 4)
+    private String lu62Name;
+	@Column(name = "TRAN_NAME", nullable = false, length = 4)
+    private String tranName;
+	@Column(name = "RETURN_CODE", nullable = false, length = 5)
+    private String returnCode;
+	@Column(name = "PROTOCOL", nullable = false, length = 6)
+	private String protocol;
+	@Column(name = "QUEUE_NAME", nullable = false, length = 25)
+    private String queueName;
+	@Column(name = "DOMAIN", nullable = false, length = 20)
+	private String domain;
+	@Column(name = "CLIENT_IDENTITY", nullable = false, length = 8)
+	private String clientIdentity;
+	@Column(name = "IP_ADDRESS", nullable = false, length = 15)
+    private String ipAddress;
+	@Column(name = "RETURN_CODE2", nullable = false, length = 5)
+    private String returnCode2;
+	@Column(name = "VALUE_LEVEL", nullable = false, length = 3)
+	private String valueLevel;
+	@Column(name = "GEOGRAPHIC_SITE", nullable = false, length = 3)
+	private String geographicSite;
+	@Column(name = "TECHNO_TYPE", nullable = false, length = 4)
+	private String technoType;
+	@Column(name = "EXECUTION_ENVIRONMENT", nullable = false, length = 1)
+	private String executionEnvironment;
+	@Column(name = "SERVER_NAME", nullable = false, length = 50)
+    private String serverName;	
+	@Column(name = "ERROR_TIMESTAMP", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date errorTimestamp;
+	@Column(name = "AVERAGE_DURATION", nullable = false)
+	private Long averageDuration;
+	@Column(name = "NUMBER_OF_ERRORS", nullable = false)
+	private Integer numberOfErrors;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Date getCreationTimestamp() {
+		return creationTimestamp;
+	}
+	public void setCreationTimestamp(Date creationTimestamp) {
+		this.creationTimestamp = creationTimestamp;
+	}
+	public String getServiceNumber() {
+		return serviceNumber;
+	}
+	public void setServiceNumber(String serviceNumber) {
+		this.serviceNumber = serviceNumber;
+	}
+	public String getConnectionType() {
+		return connectionType;
+	}
+	public void setConnectionType(String connectionType) {
+		this.connectionType = connectionType;
+	}
+	public String getOrigineType() {
+		return origineType;
+	}
+	public void setOrigineType(String origineType) {
+		this.origineType = origineType;
+	}
+	public String getMsgFormat() {
+		return msgFormat;
+	}
+	public void setMsgFormat(String msgFormat) {
+		this.msgFormat = msgFormat;
+	}
+	public String getClientApp() {
+		return clientApp;
+	}
+	public void setClientApp(String clientApp) {
+		this.clientApp = clientApp;
+	}
+	public String getServerApp() {
+		return serverApp;
+	}
+	public void setServerApp(String serverApp) {
+		this.serverApp = serverApp;
+	}
+	public Integer getMsginLength() {
+		return msginLength;
+	}
+	public void setMsginLength(Integer msginLength) {
+		this.msginLength = msginLength;
+	}
+	public Integer getMsgoutLength() {
+		return msgoutLength;
+	}
+	public void setMsgoutLength(Integer msgoutLength) {
+		this.msgoutLength = msgoutLength;
+	}
+	public String getHostIp() {
+		return hostIp;
+	}
+	public void setHostIp(String hostIp) {
+		this.hostIp = hostIp;
+	}
+	public String getPortNumber() {
+		return portNumber;
+	}
+	public void setPortNumber(String portNumber) {
+		this.portNumber = portNumber;
+	}
+	public String getLu62Name() {
+		return lu62Name;
+	}
+	public void setLu62Name(String lu62Name) {
+		this.lu62Name = lu62Name;
+	}
+	public String getTranName() {
+		return tranName;
+	}
+	public void setTranName(String tranName) {
+		this.tranName = tranName;
+	}
+	public String getReturnCode() {
+		return returnCode;
+	}
+	public void setReturnCode(String returnCode) {
+		this.returnCode = returnCode;
+	}
+	public String getProtocol() {
+		return protocol;
+	}
+	public void setProtocol(String protocol) {
+		this.protocol = protocol;
+	}
+	public String getQueueName() {
+		return queueName;
+	}
+	public void setQueueName(String queueName) {
+		this.queueName = queueName;
+	}
+	public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+	public String getClientIdentity() {
+		return clientIdentity;
+	}
+	public void setClientIdentity(String clientIdentity) {
+		this.clientIdentity = clientIdentity;
+	}
+	public String getIpAddress() {
+		return ipAddress;
+	}
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+	public String getReturnCode2() {
+		return returnCode2;
+	}
+	public void setReturnCode2(String returnCode2) {
+		this.returnCode2 = returnCode2;
+	}
+	public String getValueLevel() {
+		return valueLevel;
+	}
+	public void setValueLevel(String valueLevel) {
+		this.valueLevel = valueLevel;
+	}
+	public String getGeographicSite() {
+		return geographicSite;
+	}
+	public void setGeographicSite(String geographicSite) {
+		this.geographicSite = geographicSite;
+	}
+	public String getTechnoType() {
+		return technoType;
+	}
+	public void setTechnoType(String technoType) {
+		this.technoType = technoType;
+	}
+	public String getExecutionEnvironment() {
+		return executionEnvironment;
+	}
+	public void setExecutionEnvironment(String executionEnvironment) {
+		this.executionEnvironment = executionEnvironment;
+	}
+	public String getServerName() {
+		return serverName;
+	}
+	public void setServerName(String serverName) {
+		this.serverName = serverName;
+	}
+	public Date getErrorTimestamp() {
+		return errorTimestamp;
+	}
+	public void setErrorTimestamp(Date errorTimestamp) {
+		this.errorTimestamp = errorTimestamp;
+	}
+	public Long getAverageDuration() {
+		return averageDuration;
+	}
+	public void setAverageDuration(Long averageDuration) {
+		this.averageDuration = averageDuration;
+	}
+	public Integer getNumberOfErrors() {
+		return numberOfErrors;
+	}
+	public void setNumberOfErrors(Integer numberOfErrors) {
+		this.numberOfErrors = numberOfErrors;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

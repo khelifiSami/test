@@ -1,0 +1,64 @@
+package com.formation.adhesion.ods.core.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ENTRY_POINT_TO_MONITOR")
+public class EntryPointToMonitor implements Serializable{
+	
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="ENTRY_POINT_SEQ")
+    @SequenceGenerator(name = "ENTRY_POINT_SEQ", sequenceName="ENTRY_POINT_SEQ")
+    @Id
+    private Long id;
+    
+	@Column(name = "HOST", nullable = false, length = 64)
+    private String host;
+    
+    @Column(name = "PORT", nullable = false, length = 4)
+    private String port;
+    
+    @Column(name = "MODE_SYSTEME", nullable = false)
+    private Character modeSysteme;
+   
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
+	}
+
+	public String getPort() {
+		return port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+	}
+
+	public Character getModeSysteme() {
+		return modeSysteme;
+	}
+
+	public void setModeSysteme(Character modeSysteme) {
+		this.modeSysteme = modeSysteme;
+	}
+    
+}

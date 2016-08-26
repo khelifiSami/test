@@ -1,0 +1,6 @@
+#Updated at Mon Jun 27 15:28:20 CEST 2011
+#Mon Jun 27 15:28:20 CEST 2011
+database.password=ODS
+database.url=jdbc:oracle:thin:@tst-qvibddev1-db.france.formation.fr:1522:DEV10TF8
+database.username=ODS
+database.driverClassName=oracle.jdbc.driver.OracleDriver
