@@ -13,7 +13,7 @@ import com.formation.adhesion.ods.core.model.Statistics;
 public class DataLoaderDao {
 	private StatisticsDao statisticsDao;
 	private LivreDao livreDao;
-//test git TESTéKHZ
+//test git TESTéKHZDDF
 	public LivreDao getLivreDao() {
 		return livreDao;
 	}
