@@ -1,0 +1,26 @@
+#
+# The logging properties used for eclipse testing, We want to see INFO output on the console.
+#
+log4j.rootLogger=INFO, out
+
+#
+# uncomment the following line to enable debugging of Camel
+#
+log4j.logger.org.apache.camel=INFO, out 
+
+
+# Appender specific to odsListenerLogger
+log4j.appender.odsListenerLogger=org.apache.log4j.RollingFileAppender
+# ENV-LOGS-FILE
+log4j.appender.odsListenerLogger.File=ods-listener.log
+log4j.appender.odsListenerLogger.layout=org.apache.log4j.PatternLayout
+log4j.appender.odsListenerLogger.layout.ConversionPattern=[%30.30t] %-30.30c{1} %-5p %m%n
+log4j.appender.odsListenerLogger.MaxFileSize=5000KB
+log4j.appender.odsListenerLogger.MaxBackupIndex=4
+
+# Appender by default
+log4j.appender.out=org.apache.log4j.ConsoleAppender
+log4j.appender.out.layout=org.apache.log4j.PatternLayout
+log4j.appender.out.layout.ConversionPattern=[%30.30t] %-30.30c{1} %-5p %m%n
+
+log4j.throwableRenderer=org.apache.log4j.EnhancedThrowableRenderer

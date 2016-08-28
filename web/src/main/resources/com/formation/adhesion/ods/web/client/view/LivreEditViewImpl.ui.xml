@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<g:LayoutPanel width="449px" height="158px">
+			<g:layer left="0px" width="85px" top="8px" height="18px">
+				<g:Label text="Id" />
+			</g:layer>
+			<g:layer left="0px" width="85px" top="47px" height="18px">
+				<g:Label text="Titre" />
+			</g:layer>
+			<g:layer left="99px" width="151px" top="0px" height="26px">
+				<g:LongBox ui:field="idField" />
+			</g:layer>
+			<g:layer width="350px" top="39px" height="26px" right="0px">
+				<g:TextBox ui:field="titreField" />
+			</g:layer>
+			<g:layer left="60.0pct" width="40.0pct" top="80px" height="63.3pct">
+				<g:DecoratorPanel width="138px" height="33px">
+			<g:HorizontalPanel spacing="10">
+				<g:Button text="Ok" ui:field="okButton" />
+				<g:Button text="Cancel" ui:field="cancelButton" />
+			</g:HorizontalPanel>
+		</g:DecoratorPanel>
+			</g:layer>
+		</g:LayoutPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

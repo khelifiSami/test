@@ -1,0 +1,114 @@
+package com.formation.adhesion.ods.web.client.panel;
+
+import com.formation.adhesion.ods.core.model.Statistics;
+import com.formation.adhesion.ods.web.client.chartlayout.TemplateLayoutBundle;
+import com.formation.adhesion.ods.web.client.resource.MainClientBundle;
+import com.formation.adhesion.ods.web.shared.service.StatisticService;
+import com.formation.ui.xmlswfgwt.client.Chart;
+import com.formation.ui.xmlswfgwt.client.data.ChartData;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.LayoutPanel;
+import com.google.gwt.user.client.ui.TabPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.datepicker.client.DateBox;
+import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.SuggestBox;
+import com.google.gwt.user.client.ui.ListBox;
+
+
+public class StatisticPanel extends Composite {
+
+	private static StatisticPanelUiBinder uiBinder = GWT
+			.create(StatisticPanelUiBinder.class);
+	@UiField
+	TabPanel searchTabPanel;
+	@UiField
+	VerticalPanel searchPanel;
+	@UiField
+	Chart chart;
+	@UiField
+	VerticalPanel resultPanel; 
+	@UiField
+	Button searchButton;
+	@UiField LayoutPanel whenPanel;
+	@UiField LayoutPanel wherePanel;
+	@UiField LayoutPanel whoPanel;
+	@UiField SuggestBox serviceNumberSB;
+	@UiField DateBox whenDB;
+	@UiField SuggestBox siteSB;
+	@UiField SuggestBox SystemModeSB;
+	@UiField ListBox hourLB;
+	@UiField SuggestBox serverSB;
+	@UiField SuggestBox PCISB;
+	@UiField SuggestBox domainSB; 
+	@UiField SuggestBox clientSB;
+	@UiField SuggestBox plateformSB;
+	@UiField SuggestBox machineSB;
+	@UiField SuggestBox typeSB;
+	@UiField SuggestBox connectionTypeSB;
+	@UiField SuggestBox freshnessSB;
+
+	interface StatisticPanelUiBinder extends UiBinder<Widget, StatisticPanel> {
+	}
+
+	public StatisticPanel() {
+		initWidget(uiBinder.createAndBindUi(this));
+		searchTabPanel.selectTab(0);
+
+		whenDB.setFormat( new DateBox.DefaultFormat(DateTimeFormat.getFormat("yyyy-MM-dd") )); 
+
+	}
+
+
+	@UiHandler("searchButton")
+	void onSearchButtonClick(ClickEvent event) {
+
+		StatisticService.Util.getInstance().getStatisticForChart(serviceNumberSB.getText(),
+				new AsyncCallback<String>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+						caught.printStackTrace();
+
+					}
+
+					@Override
+					public void onSuccess(String result) {
+					
+						ChartData cd = new ChartData(result);
+						
+						chart.init(cd, 
+								TemplateLayoutBundle.INSTANCE.getNbCallsLayout());
+ 
+					}
+				});
+		StatisticService.Util.getInstance().getStatistics(41, new AsyncCallback<Statistics>() {
+			
+			@Override
+			public void onSuccess(Statistics result) {
+				Window.alert(result.getClientapp());
+				
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				caught.printStackTrace();
+				
+			}
+		});
+	}
+}
+
+
+

@@ -1,0 +1,10 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field="mainBundle"
+		type="com.formation.adhesion.ods.web.client.resource.MainClientBundle" />
+	<g:HTMLPanel styleName="{mainBundle.mainStyle.header}"> 
+
+		<g:Label  styleName="{mainBundle.mainStyle.applicationHeader}"></g:Label>
+	</g:HTMLPanel>
+</ui:UiBinder> 

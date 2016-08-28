@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='odsweb'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name="com.google.gwt.core.Core" />
+	<inherits name='com.google.gwt.user.User' />
+	<!-- the integration of XMLSWF Library for Chart -->
+	<inherits name="com.google.gwt.xml.XML" />
+	<inherits name='com.formation.ui.xmlswfgwt.XMLSWFGWT' />
+	<inherits name="com.formation.adhesion.ods.core.Core" />
+	<!-- de-RPC mecanisme -->
+	<!-- <inherits name="com.google.gwt.rpc.RPC" /> -->
+
+	<!-- Inherit the default GWT style sheet. You can change -->
+	<!-- the theme of your GWT application by uncommenting -->
+	<!-- any one of the following lines. -->
+
+	<inherits name='com.google.gwt.user.theme.clean.Clean' />
+
+	<!-- <inherits name='com.google.gwt.user.theme.standard.Standard' /> -->
+	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
+
+
+
+	<entry-point class='com.formation.adhesion.ods.web.client.ODSWeb' />
+
+	<source path='client' />
+	<source path='shared' />
+
+</module>

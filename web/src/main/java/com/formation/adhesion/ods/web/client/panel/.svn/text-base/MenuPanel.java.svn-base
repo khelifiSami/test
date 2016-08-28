@@ -1,0 +1,40 @@
+package com.formation.adhesion.ods.web.client.panel;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Widget;
+
+public class MenuPanel extends Composite{
+
+	private static MenuPanelUiBinder uiBinder = GWT
+			.create(MenuPanelUiBinder.class);
+	@UiField Button StatisticMenuItem;
+	@UiField Button TestItem;
+
+	interface MenuPanelUiBinder extends UiBinder<Widget, MenuPanel> {
+	}
+
+
+	
+	public MenuPanel() {
+		initWidget(uiBinder.createAndBindUi(this));
+	}
+
+
+ 
+	@UiHandler("StatisticMenuItem")
+	void onStatisticMenuItemClick(ClickEvent event) {
+		DesktopManager.getInstance().setMainContent(new StatisticPanel());
+	} 
+
+	@UiHandler("TestItem")
+	void onTestItemClick(ClickEvent event) {
+		DesktopManager.getInstance().setMainContent(new TestPanel());
+
+	}
+}

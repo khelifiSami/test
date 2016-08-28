@@ -1,0 +1,41 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field="mainBundle"
+		type="com.formation.adhesion.ods.web.client.resource.MainClientBundle" />
+	<g:HTMLPanel styleName="{mainBundle.mainStyle.menu}">
+		<g:StackLayoutPanel width="12em" height="22em">
+			<g:stack>
+				<g:header size="25">
+					<div class="{mainBundle.mainStyle.menuHeader}">Bibliotheque</div>
+				</g:header>
+				<g:HTMLPanel>
+					<g:Button width="11em" text="Livres" ui:field="livreMenuItem" /><HR/>
+
+				</g:HTMLPanel>
+			
+			</g:stack>
+			<g:stack>
+				<g:header size="25">
+					<div class="{mainBundle.mainStyle.menuHeader}">Adminstration</div>
+				</g:header>
+				<g:HTMLPanel>
+					<g:Button width="11em" text="ABC" ui:field="TestItem" /><HR/>
+					<g:Button width="11em" text="ABC" /><HR/>
+					<g:Button width="11em" text="ABC" />
+				</g:HTMLPanel>
+			</g:stack>
+			<g:stack>
+				<g:header size="25">
+					<div class="{mainBundle.mainStyle.menuHeader}">Info</div>
+				</g:header>
+				<g:HTMLPanel>
+					<g:Button width="11em" text="DEF" /><HR/>
+					<g:Button width="11em" text="DEF" /><HR/>
+					<g:Button width="11em" text="DEF" />
+				</g:HTMLPanel>
+			</g:stack>
+		</g:StackLayoutPanel>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

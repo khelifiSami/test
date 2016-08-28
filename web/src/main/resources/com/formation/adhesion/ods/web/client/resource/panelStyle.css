@@ -1,0 +1,10 @@
+.fieldpane {
+height : 20 px;
+}
+.cellTable {
+	width: 90%;
+
+	border: 1px solid #ccc;
+	text-align: left;
+}
+

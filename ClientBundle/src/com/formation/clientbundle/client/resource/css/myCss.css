@@ -1,0 +1,66 @@
+@def small 1px;
+@def noire #000;
+@eval fontPourMb com.formation.clientbundle.client.PreferenceUtilisateur.getFontColor();
+@def borderWidth value('iconSmile.getWidth', 'px');
+.mb {
+	background: noire;
+	color: white;
+	border: dotted;
+	border-width: 2px;
+}
+
+.mb2 {
+	background: noire;
+	color: fontPourMb;
+	border: dotted;
+	border-width: 2px;
+}
+
+.mb3 {
+	background: noire;
+	color: white;
+	border: dotted;
+}
+
+.mb3 {
+	border-width: borderWidth;
+}
+
+@if (com.formation.clientbundle.client.PreferenceUtilisateur.isLookFlashy())
+	{
+	.mb4 {
+		background: yellow;
+		color: green;
+		border: groove;
+	}
+}
+
+@else {
+	.mb4 {
+		background: grey;
+		color: black;
+	}
+}
+
+@if !user.agent ie8 opera {
+	.mb5 {
+		background: blue;
+	}
+}
+
+@else {
+	.mb5 {
+		background: silver;
+	}
+}
+
+
+@sprite .mb6 {
+	gwt-image: "iconSmile";
+	width:100%;
+	height:100%;
+	font-weight:bolder;
+	color: black;	 }
+
+/* .mb7{}*/
+

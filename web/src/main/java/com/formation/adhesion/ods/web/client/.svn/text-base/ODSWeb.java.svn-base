@@ -1,0 +1,27 @@
+package com.formation.adhesion.ods.web.client;
+
+import com.formation.adhesion.ods.web.client.panel.DesktopManager;
+import com.formation.adhesion.ods.web.client.panel.HeaderPanel;
+import com.formation.adhesion.ods.web.client.panel.MenuPanel;
+import com.formation.adhesion.ods.web.client.panel.WelcomePanel;
+import com.formation.adhesion.ods.web.client.resource.MainClientBundle;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class ODSWeb implements EntryPoint {
+
+	@Override
+	public void onModuleLoad() {
+		MainClientBundle.INSTANCE.mainStyle().ensureInjected();
+	
+		DesktopManager.getInstance().setHeader( new HeaderPanel());
+		DesktopManager.getInstance().setMenu(new MenuPanel());
+		DesktopManager.getInstance().setMainContent(new WelcomePanel());
+		RootLayoutPanel.get().add(DesktopManager.getInstance().getContainer());
+	}
+	
+	
+}

@@ -1,0 +1,117 @@
+package com.formation.adhesion.ods.web.server.service;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Element;
+
+import com.formation.adhesion.ods.core.dao.StatisticsDao;
+import com.formation.adhesion.ods.core.model.Statistics;
+import com.formation.adhesion.ods.web.shared.service.StatisticService;
+import com.formation.ui.xmlswfgwt.client.data.Tooltip;
+import com.formation.ui.xmlswfgwt.server.data.ChartData;
+ 
+public class StatisticServiceImpl implements StatisticService {
+
+	private StatisticsDao statisticsDao;
+
+	public String getStatisticForChart(String serviceNumber) {
+
+
+//		List<Statistics> stats = statisticsDao.find("188", "S23650");
+//		List<Statistics> stats = statisticsDao.find("188", "S34421");
+//		List<Statistics> stats = statisticsDao.find("188", "S38120");
+		List<Statistics> stats = statisticsDao.find("188", serviceNumber);
+		List<String> hourSlots = findHourSlots(stats);
+		List<String> originTypes = findOriginType(stats);
+
+		ChartData cdf;
+		try {
+			cdf = new ChartData();
+			// hourSlots
+			Element rowHourSlots = cdf.addRow(cdf.addNull());
+			for (Iterator iterator = hourSlots.iterator(); iterator.hasNext();) {
+				String hourSlot = (String) iterator.next();
+				rowHourSlots.appendChild(cdf.addValue(hourSlot));
+			}
+
+			// OriginTypes
+			for (Iterator iterator = originTypes.iterator(); iterator.hasNext();) {
+				String originType = (String) iterator.next();
+				Element rowOriginType = cdf.addRow(cdf.addValue(originType));
+				for (Iterator iteratorHourSlot = hourSlots.iterator(); iteratorHourSlot
+						.hasNext();) {
+					String hourSlot = (String) iteratorHourSlot.next();
+					double numberOfServices = findNumberOfServices(stats,
+							originType, hourSlot);
+					rowOriginType.appendChild(cdf.addValue(numberOfServices, new Tooltip(String.valueOf(numberOfServices))));
+
+				}
+			}
+
+			return cdf.toString();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	private double findNumberOfServices(List<Statistics> stats,
+			String originType, String hourSlot) {
+		double numberOfService = 0;
+		for (Iterator statsIterator = stats.iterator(); statsIterator.hasNext();) {
+			Statistics stat = (Statistics) statsIterator.next();
+			if (stat.getHourslot().equals(hourSlot)
+					&& stat.getOriginetype().equals(originType)) {
+				numberOfService += stat.getNumberofservice();
+			}
+		}
+		return numberOfService;
+	}
+
+	private List<String> findOriginType(List<Statistics> stats) {
+		ArrayList<String> originTypes = new ArrayList<String>();
+		for (Iterator statsIterator = stats.iterator(); statsIterator.hasNext();) {
+			Statistics stat = (Statistics) statsIterator.next();
+
+			if (!originTypes.contains(stat.getOriginetype())) {
+				originTypes.add(stat.getOriginetype());
+			}
+
+		}
+		return originTypes;
+	}
+
+	private List<String> findHourSlots(List<Statistics> stats) {
+		ArrayList<String> hourSlots = new ArrayList<String>();
+		for (Iterator statsIterator = stats.iterator(); statsIterator.hasNext();) {
+			Statistics stat = (Statistics) statsIterator.next();
+
+			if (!hourSlots.contains(stat.getHourslot())) {
+				hourSlots.add(stat.getHourslot());
+			}
+
+		}
+		return hourSlots;
+	}
+
+	public void setStatisticsDao(StatisticsDao statisticsDao) {
+		this.statisticsDao = statisticsDao;
+	}
+
+	public StatisticsDao getStatisticsDao() {
+		return statisticsDao;
+	}
+
+	@Override
+	public Statistics getStatistics(long id) {
+		
+		return statisticsDao.find(id);
+	}
+
+
+}

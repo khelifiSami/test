@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="EventService"
+		class="com.formation.adhesion.ods.web.server.service.EventServiceImpl">
+	</bean>
+
+
+	<bean id="StatisticService"
+		class="com.formation.adhesion.ods.web.server.service.StatisticServiceImpl">
+		<property name="statisticsDao" ref="statisticsDao" />
+	</bean>
+
+</beans>

@@ -1,0 +1,140 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.formation.ui.xmlswfgwt.client" xmlns:p2="urn:import:com.google.gwt.user.datepicker.client"
+	>
+
+	<ui:with field="mainBundle"
+		type="com.formation.adhesion.ods.web.client.resource.MainClientBundle" />
+	<g:HTMLPanel width="100%">
+ 
+		<g:VerticalPanel width="100%">
+			<g:VerticalPanel ui:field="searchPanel" height="200px" width="100%">
+				<g:TabPanel width="80%" height="100px" ui:field="searchTabPanel"
+					animationEnabled="true">
+					<g:Tab text="When">
+
+						<g:LayoutPanel width="423px" height="200px" ui:field="whenPanel">
+							<g:layer left="10px" width="85px" top="13px" height="32px">
+								<g:Label text="Date" />
+							</g:layer>
+							<g:layer top="10px" height="32px" width="146px" left="106px">
+								<p2:DateBox styleName="{mainBundle.mainStyle.field}" ui:field="whenDB" />
+							</g:layer>  
+							<g:layer left="10px" width="85px" top="43px" height="32px">
+								<g:Label text="Hour"/>
+							</g:layer> 
+							<g:layer top="40px" height="32px" width="63px" left="106px">
+								<g:ListBox styleName="{mainBundle.mainStyle.field}" ui:field="hourLB"/>
+							</g:layer>
+						</g:LayoutPanel>
+			
+					</g:Tab>
+					<g:Tab text="Where">
+					
+							<g:LayoutPanel width="423px" height="200px"  ui:field="wherePanel">
+								<g:layer left="12px" width="85px" top="10px" height="32px">
+									<g:Label text="System Mode"/>
+								</g:layer>
+								<g:layer left="106px" width="195px" top="10px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="SystemModeSB"/>
+								</g:layer>
+								<g:layer left="12px" width="81px" top="43px" height="32px">
+									<g:Label text="Site"/>
+								</g:layer>
+								<g:layer left="106px" width="92px" top="40px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="siteSB"/>
+								</g:layer>
+								<g:layer left="12px" width="81px" top="73px" height="32px">
+									<g:Label text="Platform"/>
+								</g:layer>
+								<g:layer left="106px" width="94px" top="70px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="plateformSB"/>
+								</g:layer>
+								<g:layer left="12px" width="74px" top="103px" height="32px">
+									<g:Label text="Machine"/>
+								</g:layer>
+								<g:layer left="106px" width="146px" top="100px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="machineSB"/>
+								</g:layer>
+							</g:LayoutPanel>
+			
+					</g:Tab>
+					<g:Tab text="Who">
+						<g:LayoutPanel ui:field="whoPanel" width="100%" height="200px" >
+							<g:layer left="10px" width="132px" top="13px" height="32px">
+								<g:InlineLabel text="Service Number"/>
+							</g:layer>
+							<g:layer left="117px" width="167px" top="10px" height="32px">
+								<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="serviceNumberSB"/>
+							</g:layer>
+							<g:layer left="10px" width="101px" top="40px" height="32px">
+								<g:InlineLabel text="Client"/>
+							</g:layer>
+							<g:layer left="117px" width="146px" top="40px" height="32px">
+								<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="clientSB"/>
+							</g:layer>
+							<g:layer left="10px" width="101px" top="73px" height="32px">
+								<g:InlineLabel text="Domain"/>
+							</g:layer>
+							<g:layer left="117px" width="146px" top="70px" height="32px">
+								<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="domainSB"/>
+							</g:layer>
+							<g:layer left="10px" width="33px" top="103px" height="32px">
+								<g:InlineLabel text="P.C.I."/>
+							</g:layer>
+							<g:layer left="117px" width="146px" top="100px" height="32px">
+								<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="PCISB"/>
+							</g:layer>
+							<g:layer left="10px" width="61px" top="133px" height="32px">
+								<g:InlineLabel text="Server"/>
+							</g:layer>
+							<g:layer left="117px" width="146px" top="130px" height="32px">
+								<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="serverSB"/>
+							</g:layer>
+						</g:LayoutPanel>
+					</g:Tab>
+					<g:Tab text="What">
+	
+							<g:LayoutPanel width="100%" height="200px">
+								<g:layer left="10px" width="101px" top="13px" height="32px">
+									<g:InlineLabel text="Connection Type"/>
+								</g:layer>
+								<g:layer left="117px" width="79px" top="10px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="connectionTypeSB"/>
+								</g:layer>
+								<g:layer left="10px" width="98px" top="45px" height="32px">
+									<g:InlineLabel text="Type"/>
+								</g:layer>
+								<g:layer left="117px" width="146px" top="40px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="typeSB"/>
+								</g:layer>
+								<g:layer left="10px" width="80px" top="73px" height="32px">
+									<g:InlineLabel text="Call Mode"/>
+								</g:layer>
+								<g:layer left="117px" width="79px" top="70px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}"/>
+								</g:layer>
+								<g:layer left="117px" width="146px" top="100px" height="32px">
+									<g:SuggestBox styleName="{mainBundle.mainStyle.field}" ui:field="freshnessSB"/>
+								</g:layer>
+								<g:layer left="10px" width="74px" top="103px" height="32px">
+									<g:InlineLabel text="Freshness"/>
+								</g:layer>
+					
+							</g:LayoutPanel>
+			
+					</g:Tab>
+
+				</g:TabPanel>
+				<g:Button width="" text="Search" ui:field="searchButton" />
+			</g:VerticalPanel>
+
+			<g:VerticalPanel ui:field="resultPanel" width="100%" height="500px">
+				<p1:Chart ui:field="chart" width="80%" height="500px" />
+			</g:VerticalPanel>
+		</g:VerticalPanel>
+ 
+
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

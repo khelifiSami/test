@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel
+END
+BrowsePanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/adhsn/!svn/ver/2433/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel/BrowsePanel.ui.xml
+END
+HeaderPanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/adhsn/!svn/ver/2267/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel/HeaderPanel.ui.xml
+END
+MenuPanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/adhsn/!svn/ver/2459/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel/MenuPanel.ui.xml
+END
+StatisticPanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel/StatisticPanel.ui.xml
+END
+WelcomePanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/adhsn/!svn/ver/2267/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel/WelcomePanel.ui.xml
+END
+TestPanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/resources/com/airfrance/adhesion/ods/web/client/panel/TestPanel.ui.xml
+END

@@ -1,0 +1,26 @@
+@sprite .applicationHeader {
+	gwt-image: "applicationLogoHeader";
+}
+
+.menuHeader {
+	font-size: medium;
+}
+
+.field {
+	height: 20px;
+}
+
+
+.content {
+	border-style: solid;
+	border-color: #DDDDDD;
+}
+
+.menu {
+	border-style: solid;
+	border-color: #DDDDDD;
+}
+
+.header {
+	
+}

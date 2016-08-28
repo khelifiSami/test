@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel
+END
+HeaderPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/adhsn/!svn/ver/2267/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel/HeaderPanel.java
+END
+MenuPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel/MenuPanel.java
+END
+StatisticPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel/StatisticPanel.java
+END
+TestPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/adhsn/!svn/ver/2480/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel/TestPanel.java
+END
+WelcomePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/adhsn/!svn/ver/2414/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel/WelcomePanel.java
+END
+DesktopManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/adhsn/!svn/ver/2437/supervision/ods/trunk/web/src/main/java/com/airfrance/adhesion/ods/web/client/panel/DesktopManager.java
+END

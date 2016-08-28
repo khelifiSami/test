@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>demoMVP</artifactId>
+		<groupId>com.formation.mvp</groupId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>com.formation.mvp</groupId>
+	<artifactId>web</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+
+	<name>web</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<!-- Convenience property to set the GWT version -->
+		<gwt-version>2.7.0</gwt-version>
+		<!-- GWT needs at least java 1.5 -->
+	</properties>
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>com.formation.mvp</groupId>
+			<artifactId>core</artifactId>
+			<version>1.0.0</version>
+
+		</dependency>
+		<dependency>
+			<groupId>com.formation.mvp</groupId>
+			<artifactId>core</artifactId>
+			<version>1.0.0</version>
+			<classifier>sources</classifier>
+
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+	
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwt-version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt-version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<classifier>sources</classifier>
+			<!-- Needed for gwt compilation step -->
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.gwtrpcspring</groupId>
+			<artifactId>gwtrpc-spring</artifactId>
+			<version>1.01</version>
+		</dependency>
+		
+	 	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+
+			<plugin>
+
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.7</version>  <!-- Note 2.8 does not work with AspectJ aspect path -->
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+					<additionalBuildcommands>
+						<buildCommand>
+							<name>org.eclipse.ajdt.core.ajbuilder</name>
+							<arguments>
+								<aspectPath>org.springframework.aspects</aspectPath>
+							</arguments>
+						</buildCommand>
+						<buildCommand>
+							<name>org.springframework.ide.eclipse.core.springbuilder</name>
+						</buildCommand>
+						<buildCommand>
+							<name>com.google.gwt.eclipse.core.gwtProjectValidator</name>
+						</buildCommand>
+					</additionalBuildcommands>
+					<classpathContainers>
+						<classpathContainer>
+							org.eclipse.jdt.launching.JRE_CONTAINER
+						</classpathContainer>
+						<!-- workaround issue http://jira.codehaus.org/browse/MECLIPSE-512 -->
+
+						<classpathContainer>
+							com.google.gwt.eclipse.core.GWT_CONTAINER
+						</classpathContainer>
+					</classpathContainers>
+					<additionalProjectnatures>
+						<projectnature>org.eclipse.ajdt.ui.ajnature</projectnature>
+						<projectnature>com.springsource.sts.roo.core.nature</projectnature>
+						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+						<projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
+
+					</additionalProjectnatures>
+				</configuration>
+
+			</plugin>
+			<!-- GWT Maven Plugin -->
+			<plugin>
+
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt-version}</version>
+
+
+				<executions>
+					<execution>
+						<id>gwtcompile</id>
+
+						<goals>
+							<goal>generateAsync</goal>
+							<goal>compile</goal>
+							<goal>test</goal>
+							<!-- <goal>i18n</goal> -->
+
+						</goals>
+					</execution>
+				</executions>
+				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
+					documentation at codehaus.org -->
+				<configuration>
+					<gwtSdkFirstInClasspath>true</gwtSdkFirstInClasspath>
+					<!--<style>PRETTY</style> -->
+					<modules>
+						<module>com.formation.adhesion.ods.core.Core</module>
+						<module>com.formation.adhesion.ods.web.ODSWeb</module>
+					</modules>
+					<runTarget>http://127.0.0.1:8888/ODSWeb.html</runTarget>
+
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.10</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8888</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<!-- Don't deploy gwt-user jar to GAE -->
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>default-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+
+
+				</executions>
+			</plugin>
+
+
+		</plugins>
+		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+
+	</build>
+	<repositories>
+		<repository>
+			<id>Octo Technology Nexus</id>
+			<url>http://forge.octo.com/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+
+</project>

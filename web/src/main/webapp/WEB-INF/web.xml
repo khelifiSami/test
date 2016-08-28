@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>mvp-web</display-name>
+
+	<description>Operational DataStore</description>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		classpath*:META-INF/spring/applicationContext-dao.xml
+		classpath*:META-INF/spring/applicationContext.xml</param-value>
+	</context-param>
+
+
+	<filter>
+		<filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+<!--		<servlet-class>com.formation.adhesion.ods.web.server.service.hibernatefilter.RemoteServiceDispatcherWithHibernateFilter</servlet-class>-->
+ 		<servlet-class>org.gwtrpcspring.RemoteServiceDispatcher</servlet-class> 
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.rpc</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>ODSWeb.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
