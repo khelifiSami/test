@@ -31,7 +31,7 @@ public class MyCellTabaleCamion extends Composite  {
 	@UiField
 	CellTable<MarqueCamion> dataGridMarquecamion;
 
-	private static Binder binder = GWT.create(Binder.class);
+	private static final Binder binder = GWT.create(Binder.class);
 
 	interface Binder extends UiBinder<Widget, MyCellTabaleCamion> {
 	}
