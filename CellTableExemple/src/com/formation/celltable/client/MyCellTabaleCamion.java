@@ -1,6 +1,7 @@
 package com.formation.celltable.client;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import com.formation.celltable.client.MyCellTable.Binder;
@@ -19,6 +20,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.cellview.client.DataGrid;
+import com.google.gwt.user.cellview.client.ColumnSortEvent.ListHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -27,8 +29,7 @@ import com.google.gwt.view.client.ListDataProvider;
 
 public class MyCellTabaleCamion extends Composite  {
 
-	private static final Binder binder = GWT.create(Binder.class);
-	
+	private static final Binder binder = GWT.create(Binder.class);	
 	@UiField
 	CellTable<MarqueCamion> dataGridMarquecamion;
 
@@ -84,6 +85,16 @@ public class MyCellTabaleCamion extends Composite  {
 		camionsData.setList(camions);
 		// envoie les données dans la cellTable
 		camionsData.addDataDisplay(dataGridMarquecamion);
+		ListHandler<MarqueCamion> sortHandler = new ListHandler<MarqueCamion>(camionsData.getList());
+		couleur.setSortable(true);
+		dataGridMarquecamion.addColumnSortHandler(sortHandler);
+
+		sortHandler.setComparator(couleur, new Comparator<MarqueCamion>() {
+			public int compare(MarqueCamion o1, MarqueCamion o2) {
+				return o1.getCouleur().compareTo(o2.getCouleur());
+			}
+						
+		});
 	}
 		
 
