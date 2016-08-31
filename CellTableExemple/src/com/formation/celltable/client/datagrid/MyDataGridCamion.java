@@ -1,6 +1,12 @@
 package com.formation.celltable.client.datagrid;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.formation.celltable.client.MarqueCamion;
+import com.formation.celltable.client.MarqueCamionData;
+import com.formation.celltable.client.MarqueVoiture;
+import com.formation.celltable.client.MarqueVoitureData;
 import com.formation.celltable.client.image.MyImageBunleCamion;
 import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.cell.client.EditTextCell;
@@ -14,6 +20,8 @@ import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.cellview.client.DataGrid;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.view.client.ListDataProvider;
+
 
 public class MyDataGridCamion extends Composite  {
 	
@@ -50,8 +58,8 @@ public class MyDataGridCamion extends Composite  {
 
 		};
 		dataGridMarquecamion.addColumn(logo,"image");
-		final EditTextCell edt = new EditTextCell();
-		Column<MarqueCamion, String> couleur = new Column<MarqueCamion, String>(edt) {
+		final EditTextCell edt 					= new EditTextCell();
+		Column<MarqueCamion, String> couleur 	= new Column<MarqueCamion, String>(edt) {
 
 			@Override
 			public String getValue(MarqueCamion coleur) {
@@ -67,6 +75,10 @@ public class MyDataGridCamion extends Composite  {
 			}
 		};
 		dataGridMarquecamion.addColumn(couleur,"couleur");
+		List<MarqueCamion> camions 					= 	Arrays.asList(MarqueCamionData.data());
+		ListDataProvider<MarqueCamion> camionsData	= 	 new ListDataProvider<MarqueCamion>();		
+		camionsData.setList(camions);
 	}
+		
 
 }
