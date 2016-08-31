@@ -26,13 +26,10 @@ import com.google.gwt.view.client.ListDataProvider;
 
 
 public class MyDataGridCamion extends Composite  {
-
 		
 	@UiField
 	DataGrid<MarqueCamion> dataGridMarquecamion;
-
 	private static  final Binder binder = GWT.create(Binder.class);
-
 	interface Binder extends UiBinder<Widget, MyDataGridCamion> {
 	}
 
@@ -91,10 +88,8 @@ public class MyDataGridCamion extends Composite  {
 			public int compare(MarqueCamion o1, MarqueCamion o2) {
 				return o1.getCouleur().compareTo(o2.getCouleur());
 			}
-			
-			
+						
 		});
 	}
 		
-
 }
