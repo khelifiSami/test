@@ -27,11 +27,10 @@ import com.google.gwt.view.client.ListDataProvider;
 
 public class MyCellTabaleCamion extends Composite  {
 
-
+	private static final Binder binder = GWT.create(Binder.class);
+	
 	@UiField
 	CellTable<MarqueCamion> dataGridMarquecamion;
-
-	private static final Binder binder = GWT.create(Binder.class);
 
 	interface Binder extends UiBinder<Widget, MyCellTabaleCamion> {
 	}

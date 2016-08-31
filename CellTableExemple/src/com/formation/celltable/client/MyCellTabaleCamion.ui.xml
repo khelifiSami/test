@@ -2,6 +2,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:p1="urn:import:com.google.gwt.user.cellview.client">
+	
 	<ui:style>
 	.panel {
 			background-color: ivory;
