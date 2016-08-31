@@ -1,45 +1,47 @@
-package com.formation.celltable.client.datagrid;
+package com.formation.celltable.client;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
-import com.formation.celltable.client.MarqueCamion;
-import com.formation.celltable.client.MarqueCamionData;
-import com.formation.celltable.client.MarqueVoiture;
-import com.formation.celltable.client.datagrid.MyDataGrid.Binder;
+import com.formation.celltable.client.MyCellTable.Binder;
+import com.formation.celltable.client.datagrid.MyDataGridCamion;
 import com.formation.celltable.client.image.MyImageBunleCamion;
-import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.cell.client.EditTextCell;
 import com.google.gwt.cell.client.ImageResourceCell;
+import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.cellview.client.DataGrid;
-import com.google.gwt.user.cellview.client.ColumnSortEvent.ListHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ListDataProvider;
 
+public class MyCellTabaleCamion extends Composite  {
 
-public class MyDataGridCamion extends Composite  {
 
-		
 	@UiField
-	DataGrid<MarqueCamion> dataGridMarquecamion;
+	CellTable<MarqueCamion> dataGridMarquecamion;
 
-	private static  final Binder binder = GWT.create(Binder.class);
+	private static Binder binder = GWT.create(Binder.class);
 
-	interface Binder extends UiBinder<Widget, MyDataGridCamion> {
+	interface Binder extends UiBinder<Widget, MyCellTabaleCamion> {
 	}
 
-	public MyDataGridCamion() {
+	public MyCellTabaleCamion() {
 		initWidget(binder.createAndBindUi(this));
 		initeTabale();
 	}
+
+
 
 	public void initeTabale(){
 		Column<MarqueCamion, ImageResource> logo = new Column<MarqueCamion, ImageResource>(
@@ -83,17 +85,6 @@ public class MyDataGridCamion extends Composite  {
 		camionsData.setList(camions);
 		// envoie les données dans la cellTable
 		camionsData.addDataDisplay(dataGridMarquecamion);
-		ListHandler<MarqueCamion> sortHandler = new ListHandler<MarqueCamion>(camionsData.getList());
-		couleur.setSortable(true);
-		dataGridMarquecamion.addColumnSortHandler(sortHandler);
-
-		sortHandler.setComparator(couleur, new Comparator<MarqueCamion>() {
-			public int compare(MarqueCamion o1, MarqueCamion o2) {
-				return o1.getCouleur().compareTo(o2.getCouleur());
-			}
-			
-			
-		});
 	}
 		
 

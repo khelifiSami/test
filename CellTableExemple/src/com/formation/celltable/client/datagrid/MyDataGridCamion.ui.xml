@@ -1,13 +1,20 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	 xmlns:p1="urn:import:com.google.gwt.user.cellview.client">>
 	<ui:style>
-	.important {
-		font-weight: bold;
-	}
+	.panel {
+			background-color: ivory;
+		}
+
 	</ui:style>
-	<g:HTMLPanel>
+	<!-- <g:HTMLPanel>
 		Hello,
 		<g:Button styleName="{style.important}" ui:field="dataGridMarquecamion" />
-	</g:HTMLPanel>
+	</g:HTMLPanel> -->
+	
+	 <g:FlowPanel styleName="{style.panel}">
+		<p1:DataGrid height="350px" width="100%" ui:field="dataGridMarquecamion"/>
+	<!-- 	<p1:DataGrid height="350px" width="100%" ui:field="dataGridMarqueCamion"/> -->
+	</g:FlowPanel>
 </ui:UiBinder> 
