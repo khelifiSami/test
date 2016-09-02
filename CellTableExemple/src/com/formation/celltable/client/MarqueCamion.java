@@ -7,19 +7,19 @@ public class MarqueCamion  implements Serializable{
 	
 	private String 	marque;
 	private String 	couleur;
-	private int 	poid;
+	private Number 	poid;
 	
-	
-	public MarqueCamion(){
-		
-	}
 	
 	public MarqueCamion(String marque,String couleur,int poid){
+		super();
 		this.marque		=	marque;
 		this.couleur	=	couleur;
 		this.poid 		= 	poid;
 				
 		
+	}
+	public MarqueCamion(){
+			
 	}
 	
 //	setter and getters
@@ -36,12 +36,13 @@ public class MarqueCamion  implements Serializable{
 	public void setCouleur(String couleur) {
 		this.couleur = couleur;
 	}
-	public int getPoid() {
+	public Number getPoid() {
 		return poid;
 	}
-	public void setPoid(int poid) {
+	public void setPoid(Number poid) {
 		this.poid = poid;
 	}
+	
 	
 	
 	

@@ -9,6 +9,6 @@
 		}
 	</ui:style>
 	<g:FlowPanel styleName="{style.panel}">
-		<p1:CellTable height="50%" width="50%" ui:field="dataGridMarquecamion"/>
+		<p1:CellTable height="50%" width="50%" ui:field="tableMarqueCamion"/>
 	</g:FlowPanel> 
 </ui:UiBinder> 

@@ -4,25 +4,23 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import com.formation.celltable.client.MyCellTable.Binder;
-import com.formation.celltable.client.datagrid.MyDataGridCamion;
 import com.formation.celltable.client.image.MyImageBunleCamion;
-import com.google.gwt.cell.client.EditTextCell;
-import com.google.gwt.cell.client.ImageResourceCell;
 import com.google.gwt.cell.client.Cell.Context;
+import com.google.gwt.cell.client.EditTextCell;
+import com.google.gwt.cell.client.FieldUpdater;
+import com.google.gwt.cell.client.ImageResourceCell;
+import com.google.gwt.cell.client.NumberCell;
+import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.Column;
-import com.google.gwt.user.cellview.client.DataGrid;
 import com.google.gwt.user.cellview.client.ColumnSortEvent.ListHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ListDataProvider;
@@ -31,8 +29,7 @@ public class MyCellTabaleCamion extends Composite  {
 
 	private static final Binder binder = GWT.create(Binder.class);	
 	@UiField
-	CellTable<MarqueCamion> dataGridMarquecamion;
-
+	CellTable<MarqueCamion> tableMarqueCamion;
 	interface Binder extends UiBinder<Widget, MyCellTabaleCamion> {
 	}
 
@@ -42,8 +39,8 @@ public class MyCellTabaleCamion extends Composite  {
 	}
 
 
-
 	public void initeTabale(){
+		
 		Column<MarqueCamion, ImageResource> logo = new Column<MarqueCamion, ImageResource>(
 				new ImageResourceCell()) {
 
@@ -55,16 +52,15 @@ public class MyCellTabaleCamion extends Composite  {
 					return MyImageBunleCamion.INSTANCE_CAMION.citroen();
 				if (marque.getMarque().equalsIgnoreCase("france"))
 					return MyImageBunleCamion.INSTANCE_CAMION.france();
-				if (marque.getMarque().equalsIgnoreCase("toyota"))
-					return MyImageBunleCamion.INSTANCE_CAMION.toyota();
 				return MyImageBunleCamion.INSTANCE_CAMION.alfaromeo();
-			}	
-		
+			}			
 
 		};
-		dataGridMarquecamion.addColumn(logo,"image");
+
+		
+		tableMarqueCamion.addColumn(logo,"image");
 		final EditTextCell edt 					= new EditTextCell();
-		Column<MarqueCamion, String> couleur 	= new Column<MarqueCamion, String>(edt) {
+		final Column<MarqueCamion, String> couleur 	= new Column<MarqueCamion, String>(edt) {
 
 			@Override
 			public String getValue(MarqueCamion coleur) {
@@ -72,30 +68,65 @@ public class MyCellTabaleCamion extends Composite  {
 				return coleur.getCouleur();
 			}
 			@Override
-			public void render(Context context, MarqueCamion coleur,
-					SafeHtmlBuilder sb) {
+			public void render(Context context, MarqueCamion coleur,SafeHtmlBuilder sb) {
 				sb.appendHtmlConstant("<strong>");
 				super.render(context, coleur, sb);
 				sb.appendHtmlConstant("</strong>");
 			}
 		};
-		dataGridMarquecamion.addColumn(couleur,"couleur");
+		
+		couleur.setFieldUpdater(new FieldUpdater<MarqueCamion, String>(){
+			public void update(int index,MarqueCamion marqeCamion,String value){
+				if(value.length() <2)
+				{
+					Window.alert("la longeur de la couleurne doit pas etre inferieur a 2");
+					edt.clearViewData(couleur);
+				tableMarqueCamion.redraw();
+				return;
+				}
+				marqeCamion.setCouleur(value);
+				}
+			
+		});
+
+
+		tableMarqueCamion.addColumn(couleur,"couleur");
+		
+		Column<MarqueCamion, String> marque = new Column<MarqueCamion, String>(new TextCell()) {
+
+			@Override
+			public String getValue(MarqueCamion object) {
+				// TODO Auto-generated method stub
+				return object.getMarque();
+			}
+		};
+		tableMarqueCamion.addColumn(marque,"MARQUE");
+		Column<MarqueCamion, Number> poid = new Column<MarqueCamion, Number>(new NumberCell(NumberFormat.getFormat("####"))) {
+
+			@Override
+			public Number getValue(MarqueCamion object) {
+				
+				return object.getPoid();
+			}
+		};
+		tableMarqueCamion.addColumn(poid,"poid net");
 		List<MarqueCamion> camions 					= 	Arrays.asList(MarqueCamionData.data());
 		ListDataProvider<MarqueCamion> camionsData	= 	 new ListDataProvider<MarqueCamion>();		
 		camionsData.setList(camions);
 		// envoie les données dans la cellTable
-		camionsData.addDataDisplay(dataGridMarquecamion);
+		camionsData.addDataDisplay(tableMarqueCamion);
 		ListHandler<MarqueCamion> sortHandler = new ListHandler<MarqueCamion>(camionsData.getList());
 		couleur.setSortable(true);
-		dataGridMarquecamion.addColumnSortHandler(sortHandler);
-
+		tableMarqueCamion.addColumnSortHandler(sortHandler);
 		sortHandler.setComparator(couleur, new Comparator<MarqueCamion>() {
 			public int compare(MarqueCamion o1, MarqueCamion o2) {
 				return o1.getCouleur().compareTo(o2.getCouleur());
 			}
 						
 		});
+		tableMarqueCamion.getColumnSortList().push(couleur);
+
+	
 	}
 		
-
 }

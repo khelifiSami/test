@@ -35,7 +35,7 @@ public class MyDataGrid extends Composite {
 
 	interface Binder extends UiBinder<Widget, MyDataGrid> {
 	}
-
+	
 	public MyDataGrid() {
 		initWidget(binder.createAndBindUi(this));
 		initCellTable();
