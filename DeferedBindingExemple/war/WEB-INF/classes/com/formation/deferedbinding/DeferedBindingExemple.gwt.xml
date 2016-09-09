@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 1.7.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/1.7.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to='deferedbindingexemple'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<!-- Inherit the default GWT style sheet. You can change -->
+	<!-- the theme of your GWT application by uncommenting -->
+	<!-- any one of the following lines. -->
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
+
+	<!-- Other module inherits -->
+	-->
+	<define-property name="choixOperation" values="addition,soustraction" />
+
+	<replace-with class="com.formation.deferedbinding.client.Addition">
+		<when-type-is class="com.formation.deferedbinding.client.Operation" />
+		<when-property-is name="choixOperation" value="addition" />
+	</replace-with>
+
+	<replace-with class="com.formation.deferedbinding.client.Soustraction">
+		<when-type-is class="com.formation.deferedbinding.client.Operation" />
+		<when-property-is name="choixOperation" value="soustraction" />
+	</replace-with>
+
+		<!--méthode statique-->
+<!--<set-property name="choixOperation" value="soustraction" />-->
+	
+	
+	<!-- methode dynamique en correspondance avec la balise meta du fichier html-->
+	<property-provider name="choixOperation">  
+	<![CDATA[ var choixOperation = __gwt_getMetaProperty("choixOperation");
+		 if (choixOperation == null)
+		 { 
+		 	choixOperation = "soustraction"; 
+		 } 
+		 return choixOperation; ]]>
+	</property-provider>
+	
+
+
+	<!-- Specify the app entry point class. -->
+	<entry-point
+		class='com.formation.deferedbinding.client.DeferedBindingExemple' />
+ <inherits name='com.google.gwt.user.UserAgent'/>
+<!--    <set-property name="user.agent" value="gecko1_8"/> -->
+</module>

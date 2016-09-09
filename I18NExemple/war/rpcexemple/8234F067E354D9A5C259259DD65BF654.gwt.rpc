@@ -1,0 +1,7 @@
+com.formation.i18n.client.Livre, true
+[Lcom.formation.i18n.client.Livre;, true
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true
+java.lang.Exception, false
+java.lang.RuntimeException, false
+java.lang.String, true
+java.lang.Throwable, false
