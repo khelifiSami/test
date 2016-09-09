@@ -6,6 +6,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("biblio")
 public interface BiblioService extends RemoteService {
 	public Livre getLivre(int numero);
+//	jadd to index
 
 	public Livre[] getLivres();
 
