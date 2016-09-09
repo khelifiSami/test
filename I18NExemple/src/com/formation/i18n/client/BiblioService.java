@@ -7,6 +7,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface BiblioService extends RemoteService {
 	public Livre getLivre(int numero);
 //	jadd to index
+//	J4AJOUTE PAS AU INDEX
 
 	public Livre[] getLivres();
 
